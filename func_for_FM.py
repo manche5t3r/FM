@@ -3,12 +3,14 @@ import shutil
 import datetime
 
 
+# создание файла
 def create_file(name, text=None):
     with open(name, 'w', encoding='utf-8') as f:
         if text:
             f.write(text)
 
 
+# создание папки
 def create_folder(name):
     try:
         os.mkdir(name)
@@ -16,6 +18,7 @@ def create_folder(name):
         print('Same folder already exists')
 
 
+# список файлов
 def get_list(folders_only=False):
     result = os.listdir()
     if folders_only:
@@ -23,6 +26,7 @@ def get_list(folders_only=False):
     print(result)
 
 
+# удаление папки/файла
 def delete_file(name):
     if os.path.isdir(name):
         os.rmdir(name)
@@ -30,6 +34,7 @@ def delete_file(name):
         os.remove(name)
 
 
+# копирование файла/папки
 def copy_file(name, new_name):
     if os.path.isdir(name):
         try:
@@ -40,6 +45,7 @@ def copy_file(name, new_name):
         shutil.copy(name, new_name)
 
 
+# запись инф-ции о работе
 def save_info(message):
     current_time = datetime.datetime.now()
     result = f'{current_time} - {message}'
@@ -47,5 +53,6 @@ def save_info(message):
         f.write(result + '\n')
 
 
-if __name__ == '__main__':
-    save_info('abc')
+# информация о файле/папке
+def inf_file(name):
+    os.stat(name)
