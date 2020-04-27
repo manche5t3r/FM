@@ -45,14 +45,15 @@ def copy_file(name, new_name):
         shutil.copy(name, new_name)
 
 
+# информация о файле/папке
+def info(name):
+    result = os.stat(name)
+    print(result)
+
+
 # запись инф-ции о работе
 def save_info(message):
     current_time = datetime.datetime.now()
     result = f'{current_time} - {message}'
     with open('log.txt', 'a', encoding='utf-8') as f:
         f.write(result + '\n')
-
-
-# информация о файле/папке
-def inf_file(name):
-    os.stat(name)
