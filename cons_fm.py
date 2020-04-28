@@ -43,5 +43,3 @@ else:
         print('info - информация о файле')
 
     save_info('End')
-
-    # if __name__ == '__main__':

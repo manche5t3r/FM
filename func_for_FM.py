@@ -1,6 +1,7 @@
 import os
 import shutil
 import datetime
+import time
 
 
 # создание файла
@@ -48,7 +49,16 @@ def copy_file(name, new_name):
 # информация о файле/папке
 def info(name):
     result = os.stat(name)
-    print(result)
+    print(f'Inode protection mode - {result.st_mode}')
+    print(f'Inode number - {result.st_ino}')
+    print(f'Device inode resides on - {result.st_dev}')
+    print(f'Number of links to the inode - {result.st_nlink}')
+    print(f'User id of the owner - {result.st_uid}')
+    print(f'Group id of the owner - {result.st_gid}')
+    print(f'Size in bytes of a plain file - {result.st_size}')
+    print(f'Time of last access - {time.ctime(result.st_atime)}')
+    print(f'Time of last modification - {time.ctime(result.st_mtime)}')
+    print(f'Time of creation - {time.ctime(result.st_ctime)}')
 
 
 # запись инф-ции о работе
