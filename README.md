@@ -1,1 +1,1 @@
-# mufc
+# File manager for Rubius Academy
